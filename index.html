@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة مدرستي التفاعلية</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="auth-container" class="auth-container">
+        <div class="auth-box">
+            <form id="login-form">
+                <h2>تسجيل الدخول</h2>
+                <div class="input-group">
+                    <label for="login-email">البريد الإلكتروني</label>
+                    <input type="email" id="login-email" required>
+                </div>
+                <div class="input-group">
+                    <label for="login-password">كلمة المرور</label>
+                    <input type="password" id="login-password" required>
+                </div>
+                <div class="input-group">
+                    <label for="login-role">أنا:</label>
+                    <select id="login-role">
+                        <option value="student">طالب</option>
+                        <option value="teacher">معلم</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn primary-btn">دخول</button>
+                <p class="auth-toggle">ليس لديك حساب؟ <a href="#" id="show-signup">إنشاء حساب</a></p>
+            </form>
+
+            <form id="signup-form" class="hidden">
+                <h2>إنشاء حساب جديد</h2>
+                <div class="input-group">
+                    <label for="signup-name">الاسم الكامل</label>
+                    <input type="text" id="signup-name" required>
+                </div>
+                <div class="input-group">
+                    <label for="signup-email">البريد الإلكتروني</label>
+                    <input type="email" id="signup-email" required>
+                </div>
+                <div class="input-group">
+                    <label for="signup-password">كلمة المرور</label>
+                    <input type="password" id="signup-password" required>
+                </div>
+                <div class="input-group">
+                    <label for="signup-role">أريد التسجيل كـ:</label>
+                    <select id="signup-role">
+                        <option value="student">طالب</option>
+                        <option value="teacher">معلم</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn primary-btn">إنشاء</button>
+                <p class="auth-toggle">لديك حساب بالفعل؟ <a href="#" id="show-login">تسجيل الدخول</a></p>
+            </form>
+        </div>
+        
+        <div class="background-shapes">
+            <div class="shape shape1"></div>
+            <div class="shape shape2"></div>
+            <div class="shape shape3"></div>
+            <div class="shape shape4"></div>
+        </div>
+    </div>
+
+    <div id="dashboard-container" class="dashboard-container hidden">
+        <header class="dashboard-header">
+            <h1>أهلاً بك، <span id="user-name"></span>!</h1>
+            <nav>
+                <a href="#">الرئيسية</a>
+                <a href="#">ملفي الشخصي</a>
+                <button id="logout-btn" class="btn secondary-btn">تسجيل الخروج</button>
+            </nav>
+        </header>
+
+        <main id="teacher-dashboard" class="dashboard-content hidden">
+            <h3>لوحة تحكم المعلم</h3>
+            <div class="icon-grid">
+                <div class="icon-card">
+                    <div class="icon-circle" style="background-color: #e0f7fa;">📝</div>
+                    <h4>نشر واجب جديد</h4>
+                    <p>إضافة واجبات وتعيين مواعيد تسليم.</p>
+                </div>
+                <div class="icon-card">
+                    <div class="icon-circle" style="background-color: #e8f5e9;">📚</div>
+                    <h4>إضافة درس</h4>
+                    <p>رفع ملفات الدروس، فيديوهات، وروابط.</p>
+                </div>
+                <div class="icon-card">
+                    <div class="icon-circle" style="background-color: #fff3e0;">🗓️</div>
+                    <h4>جدول الحصص</h4>
+                    <p>تحديث الجدول الأسبوعي للطلاب.</p>
+                </div>
+                <div class="icon-card">
+                    <div class="icon-circle" style="background-color: #f3e5f5;">🎨</div>
+                    <h4>إضافة نشاط</h4>
+                    <p>إعلان عن أنشطة لا صفية أو مسابقات.</p>
+                </div>
+                <div class="icon-card">
+                    <div class="icon-circle" style="background-color: #ffebee;">💬</div>
+                    <h4>عرض تعليقات الطلاب</h4>
+                    <p>مراجعة استفسارات الطلاب والرد عليها.</p>
+                </div>
+            </div>
+        </main>
+
+        <main id="student-dashboard" class="dashboard-content hidden">
+            <h3>لوحة متابعة الطالب</h3>
+            <div class="content-feed">
+                <div class="feed-item">
+                    <div class="feed-item-header">
+                        <span class="item-type lesson">📚 درس جديد</span>
+                        <span class="item-date">منذ 10 دقائق</span>
+                    </div>
+                    <h4>مقدمة في الجبر الخطي</h4>
+                    <p>تم رفع ملف PDF للدرس الأول، يرجى المراجعة قبل حصة الغد.</p>
+                    <div class="comment-section">
+                        <h5>التعليقات:</h5>
+                        <div class="comments-list">
+                            <p><em>لا توجد تعليقات بعد.</em></p>
+                        </div>
+                        <form class="comment-form">
+                            <input type="text" placeholder="اكتب تعليقك للمعلم..." required>
+                            <button type="submit" class="btn primary-btn small-btn">إرسال</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="feed-item">
+                    <div class="feed-item-header">
+                        <span class="item-type homework">📝 واجب منزلي</span>
+                        <span class="item-date">منذ 1 ساعة</span>
+                    </div>
+                    <h4>واجب الرياضيات: حل التمارين 1-5</h4>
+                    <p>آخر موعد للتسليم يوم الأحد القادم. يرجى رفع الحلول على المنصة.</p>
+                    <div class="comment-section">
+                        <h5>التعليقات:</h5>
+                        <div class="comments-list">
+                            <p><strong>أحمد:</strong> شكراً لك يا أستاذ.</p>
+                        </div>
+                        <form class="comment-form">
+                            <input type="text" placeholder="اكتب تعليقك للمعلم..." required>
+                            <button type="submit" class="btn primary-btn small-btn">إرسال</button>
+                        </form>
+                    </div>
+                </div>
+                 <div class="feed-item">
+                    <div class="feed-item-header">
+                        <span class="item-type activity">🎨 نشاط</span>
+                        <span class="item-date">منذ 3 ساعات</span>
+                    </div>
+                    <h4>مسابقة البرمجة المدرسية</h4>
+                    <p>التسجيل مفتوح الآن لجميع الطلاب المهتمين. انظر الملف المرفق للتفاصيل.</p>
+                    <div class="comment-section">
+                        <h5>التعليقات:</h5>
+                        <div class="comments-list">
+                           <p><em>لا توجد تعليقات بعد.</em></p>
+                        </div>
+                        <form class="comment-form">
+                            <input type="text" placeholder="اكتب تعليقك للمعلم..." required>
+                            <button type="submit" class="btn primary-btn small-btn">إرسال</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+    </div>
+
+    <div id="profile-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <button class="modal-close-btn">&times;</button>
+            <h3>ملفي الشخصي</h3>
+            <div class="profile-info">
+                <div class="profile-avatar">
+                    <span id="profile-initial"></span>
+                </div>
+                <h4 id="profile-name">اسم المستخدم</h4>
+                <p id="profile-email">email@example.com</p>
+                <span id="profile-role" class="role-badge"></span>
+            </div>
+        </div>
+    </div>
+
+    <div id="add-content-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <button class="modal-close-btn">&times;</button>
+            <h3 id="modal-title">إضافة محتوى جديد</h3>
+            <form id="add-content-form" class="modal-form">
+                <input type="hidden" id="content-type-hidden">
+                <div class="input-group">
+                    <label for="content-title">العنوان</label>
+                    <input type="text" id="content-title" required>
+                </div>
+                <div class="input-group">
+                    <label for="content-description">الوصف أو التفاصيل</label>
+                    <textarea id="content-description" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn primary-btn">نشر الآن</button>
+            </form>
+        </div>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
